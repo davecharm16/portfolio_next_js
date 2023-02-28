@@ -1,0 +1,45 @@
+.ProjectBackground {
+    background: url('../../public/wave2.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.MainBackground {
+    background-image: linear-gradient(rgba(31, 31, 31, 0.52), rgba(23, 23, 23, 0.73)),
+    url('../../public/bgportfolio3.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.ProjectHead {
+    animation-name: slideIn;
+    animation-duration: 3s;
+}
+
+.Bar{
+    opacity: 1;
+    animation-name: fadeIn;
+    animation-duration: 3s;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%); 
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1; 
+    }
+}
