@@ -1,7 +1,3 @@
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-
-
 export const firebaseConfig = {
   apiKey: "AIzaSyCNFtWKDdTzqNfeXNjMuqBK1iM8mQFG9V4",
   authDomain: "portfolio-757cf.firebaseapp.com",

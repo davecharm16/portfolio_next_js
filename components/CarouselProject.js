@@ -1,7 +1,14 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { ProjectItem } from './ProjectItem';
+import { firebaseConfig } from '@/utils/firebase';
+import { collection, query, where, onSnapshot, getFirestore } from "firebase/firestore"; 
+import { initializeApp } from 'firebase/app';
+import { async } from '@firebase/util';
+
+
+
 
 const responsive = {
     superLargeDesktop: {
@@ -24,12 +31,41 @@ const responsive = {
   };
 
 
-  
 export const CarouselProject = () => {
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const [projects, setProjects] = useState([]);
+
+
+  useEffect(() => {
+    const q = query(collection(db, "projects"));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const proj = [];
+      querySnapshot.forEach((doc) => {
+          // console.log(doc.data())
+          proj.push(doc.data());
+      });
+      setProjects(proj);
+      // console.log("Current cities in CA: ", cities.join(", "));
+    });
+
+    return unsubscribe;
+  }, [])
+
+
+
   return (
-    <Carousel responsive={responsive} className= 'h-[450px] mt-10 p-5 rounded-xl max-w-[1000px] mx-auto'>
+    <Carousel responsive={responsive} className= 'h-[650px] p-5 rounded-xl max-w-[1400px] mx-auto'>
       <ProjectItem/>
-      <ProjectItem/>
+      {
+        projects.map((val)=>{
+          console.log(val.project_name);
+          return(
+            <ProjectItem projectTitle={val.project_name}/>
+          )
+        })
+        
+      }
     </Carousel>
   )
 }
