@@ -53,7 +53,7 @@ export const CarouselProject = () => {
 
 
   return (
-    <Carousel responsive={responsive} className= 'h-[650px] p-5 rounded-xl max-w-[1400px] mx-auto'>
+    <Carousel responsive={responsive} className= 'p-5 rounded-xl max-w-[1400px] mx-auto'>
       {
         projects.map((val, id)=>{
           return(

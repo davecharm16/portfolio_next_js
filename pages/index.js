@@ -26,7 +26,7 @@ export default function Home() {
 
       {/* {darkMode ?<Particle className = '' darkMode={false}/> : <Particle className = '' darkMode={true}/> } */}
       <Particle darkMode={darkMode}/>
-      <main className='bg-white px-10 MainBackground md:px-20 lg:px-40 dark:bg-[#121212] '>
+      <main className='bg-white px-10 MainBackground md:px-20 lg:px-40 dark:bg-[#121212]'>
         <section className='min-h-screen relative'>
           <nav className='py-10 mb-12 flex justify-between'>
             <div className='flex flex-row items-center'>
@@ -56,9 +56,6 @@ export default function Home() {
             <AiFillLinkedin/>
             <AiFillYoutube/>
           </div>
-          {/* <div className='relative bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 mt-20 mx-auto overflow-hidden md:h-96 md:w-96'>
-            <Image src={deved} layout='fill' objectFit='cover'/>
-          </div> */}
           <div className='h-10'></div>
         </section>
       </main>

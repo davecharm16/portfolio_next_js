@@ -19,7 +19,6 @@ export const ProjectItem = ({projects}) => {
                         )
                     }) 
                 }
-                
             </div>
             <a href={projects?.project_link} className='flex flex-row items-center justify-between bg-[#F6E71D] text-[#121212] rounded-sm px-7 py-2 shadow-xl font-bold' target='_blank'>
                 <span className='mr-2'> VIEW ON GIT</span>
