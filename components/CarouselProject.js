@@ -5,8 +5,6 @@ import { ProjectItem } from './ProjectItem';
 import { firebaseConfig } from '@/utils/firebase';
 import { collection, query, where, onSnapshot, getFirestore } from "firebase/firestore"; 
 import { initializeApp } from 'firebase/app';
-import { async } from '@firebase/util';
-
 
 
 
@@ -56,12 +54,10 @@ export const CarouselProject = () => {
 
   return (
     <Carousel responsive={responsive} className= 'h-[650px] p-5 rounded-xl max-w-[1400px] mx-auto'>
-      <ProjectItem/>
       {
-        projects.map((val)=>{
-          console.log(val.project_name);
+        projects.map((val, id)=>{
           return(
-            <ProjectItem projectTitle={val.project_name}/>
+            <ProjectItem projects={val} key={id}/>
           )
         })
         

@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useState, useEffect}from 'react'
 import {RxExternalLink} from 'react-icons/rx';
 
-export const ProjectItem = ({projectTitle, description, image, gitLink, teckStack}) => {
+export const ProjectItem = ({projects}) => {
+
+//   console.log(project);
   return (
     <div className='flex flex-col items-center h-[600px] w-[95%] rounded-lg justify-center shadow-xl md:flex-row'>
         <div className='flex w-full h-full justify-center items-center md:w-1/2'>
@@ -9,12 +11,17 @@ export const ProjectItem = ({projectTitle, description, image, gitLink, teckStac
             object-contain'/>
         </div>
         <div className='text-white p-3 flex flex-col w-full h-full justify-center items-start md:w-1/2 '>
-            <h2 className='text-2xl font-bold text-white mb-3'>Gear Up</h2>
-            <p className='w-[95%] mb-5'>Gear-up is a multiservice logistics and transport company and I created their website from scratch using the frontend tools I know.</p>
+            <h2 className='text-2xl font-bold text-white mb-3'>{projects?.project_name}</h2>
+            <p className='w-[95%] mb-5'> {projects?.project_description} </p>
             <div className='w-full mb-10'>
-                <div className='inline-block mr-3 text-[#121212] font-bold bg-white rounded-sm px-7 py-2 uppercase'>HTML</div>
-                <div className='inline-block mr-3 text-[#121212] font-bold bg-white rounded-sm px-7 py-2 uppercase'>CSS</div>
-                <div className='inline-block mr-3 text-[#121212] font-bold bg-white rounded-sm px-7 py-2 uppercase'>JS</div>
+                { projects?.tech_stack.map((val, id) => {
+                        return(
+                            <div className='inline-block mr-3 text-[#121212] font-bold bg-white rounded-sm px-7 py-2 uppercase' key={id}>{val}</div>
+                        )
+                    }) 
+                }
+                
+                
             </div>
             <button className='flex flex-row items-center justify-between bg-[#F6E71D] text-[#121212] rounded-sm px-7 py-2 shadow-xl font-bold'>
                 <span className='mr-2'> VIEW ON GIT</span>
