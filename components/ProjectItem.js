@@ -12,10 +12,10 @@ export const ProjectItem = ({projects}) => {
         <div className='text-white p-3 flex flex-col w-full h-full justify-center items-start md:w-1/2 '>
             <h2 className='text-2xl font-bold text-white mb-3'>{projects?.project_name}</h2>
             <p className='w-[95%] mb-5'> {projects?.project_description} </p>
-            <div className='w-full mb-10'>
+            <div className='w-full mb-10 flex flex-row flex-wrap'>
                 { projects?.tech_stack.map((val, id) => {
                         return(
-                            <div className='inline-block mr-3 mb-3 text-[#121212] font-bold bg-white rounded-sm px-7 py-2 uppercase' key={id}>{val}</div>
+                            <div className='m-[5px] text-[#121212] font-bold bg-white rounded-sm px-7 py-2 uppercase' key={id}>{val}</div>
                         )
                     }) 
                 }
